@@ -1,10 +1,10 @@
 #include "openGGL/2D/geometric-figures-unit.hpp"
+#include "openGGL/constants.hpp"
+
 #include <GL/gl.h>
 #include <cmath>
 #include <cstdint>
 #include <math.h>
-
-#define PI 3.141592654
 
 namespace openGGL::GeometricFigures::Unit {
 
