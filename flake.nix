@@ -42,6 +42,8 @@
 				cp --recursive include $out
 				cp libOpenGGL.a $out/lib/
 			'';
+
+			LD_LIBRARY_PATH = libPath + "/run/opengl-driver/lib:/run/opengl-driver-32/lib";
 		};
 	in {
 		packages.x86_64-linux.openGGL = openGGL;
