@@ -22,6 +22,7 @@
 
 			src = ./.;
 
+			# TODO: make some packages only available in build phase
 			buildInputs = with pkgs; [ 
 				assimp
 				clang
@@ -30,9 +31,6 @@
 				glfw
 				gnumake
 				libGLU
-			];
-
-			nativeBuildInputs = with pkgs; [
 			];
 
 			buildPhase = ''
