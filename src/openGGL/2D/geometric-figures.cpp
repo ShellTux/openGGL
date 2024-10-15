@@ -5,7 +5,7 @@
 #include <cmath>
 #include <cstdint>
 
-namespace openGGL::GeometricFigures {
+namespace openGGL::GeometricFigures2D {
 
 void Rect(const GLfloat xPos, const GLfloat yPos, const GLfloat width,
           const GLfloat height) {
@@ -58,4 +58,4 @@ void Point(const GLfloat xPos, const GLfloat yPos) {
   glEnd();
 }
 
-} // namespace openGGL::GeometricFigures
+} // namespace openGGL::GeometricFigures2D

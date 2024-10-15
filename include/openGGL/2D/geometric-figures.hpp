@@ -4,7 +4,7 @@
 #include <GL/gl.h>
 #include <cstdint>
 
-namespace openGGL::GeometricFigures {
+namespace openGGL::GeometricFigures2D {
 
 void Rect(const GLfloat xPos, const GLfloat yPos, const GLfloat width,
           const GLfloat height);
@@ -14,6 +14,6 @@ void Grid(const GLfloat xPos, const GLfloat yPos, const GLfloat width,
           const GLfloat height, const uint64_t rows, const uint64_t cols);
 void Point(const GLfloat xPos, const GLfloat yPos);
 
-} // namespace openGGL::GeometricFigures
+} // namespace openGGL::GeometricFigures2D
 
 #endif // INCLUDE_2D_GEOMETRIC_FIGURES_H_

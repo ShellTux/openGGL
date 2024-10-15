@@ -6,7 +6,7 @@
 #include <cstdint>
 #include <math.h>
 
-namespace openGGL::GeometricFigures::Unit {
+namespace openGGL::GeometricFigures2D::Unit {
 
 void Circle(const int resolution) {
   constexpr GLfloat r = 0.5;
@@ -73,4 +73,4 @@ void Triangle() {
   glEnd();
 }
 
-} // namespace openGGL::GeometricFigures::Unit
+} // namespace openGGL::GeometricFigures2D::Unit

@@ -120,38 +120,39 @@ void draw() {
   glLoadIdentity();
 
   QUAD_UNIT(1, 0, quadWidth, quadHeight,
-            { openGGL::GeometricFigures::Unit::Square(); })
+            { openGGL::GeometricFigures2D::Unit::Square(); })
 
   QUAD_UNIT(1, 1, quadWidth, quadHeight,
-            { openGGL::GeometricFigures::Unit::Circle(); })
+            { openGGL::GeometricFigures2D::Unit::Circle(); })
 
   QUAD_UNIT(1, 2, quadWidth, quadHeight,
-            { openGGL::GeometricFigures::Unit::Grid(3, 3); })
+            { openGGL::GeometricFigures2D::Unit::Grid(3, 3); })
 
   QUAD_UNIT(1, 3, quadWidth, quadHeight, {
     glPointSize(10);
-    openGGL::GeometricFigures::Unit::Point();
+    openGGL::GeometricFigures2D::Unit::Point();
   })
 
   QUAD_UNIT(1, 4, quadWidth, quadHeight, {
     glPointSize(10);
-    openGGL::GeometricFigures::Unit::Triangle();
+    openGGL::GeometricFigures2D::Unit::Triangle();
   })
 
   QUAD(3, 0, quadWidth, quadHeight,
-       { openGGL::GeometricFigures::Rect(x, y, quadWidth, quadHeight); })
+       { openGGL::GeometricFigures2D::Rect(x, y, quadWidth, quadHeight); })
 
   QUAD(3, 1, quadWidth, quadHeight, {
-    openGGL::GeometricFigures::Circle(x + quadWidth * .5, y + quadHeight * .5,
-                                      quadWidth * .5);
+    openGGL::GeometricFigures2D::Circle(x + quadWidth * .5, y + quadHeight * .5,
+                                        quadWidth * .5);
   })
 
-  QUAD(3, 2, quadWidth, quadHeight,
-       { openGGL::GeometricFigures::Grid(x, y, quadWidth, quadHeight, 3, 3); })
+  QUAD(3, 2, quadWidth, quadHeight, {
+    openGGL::GeometricFigures2D::Grid(x, y, quadWidth, quadHeight, 3, 3);
+  })
 
   QUAD(3, 3, quadWidth, quadHeight, {
     glPointSize(10);
-    openGGL::GeometricFigures::Point(x + quadWidth * .5, y + quadHeight * .5);
+    openGGL::GeometricFigures2D::Point(x + quadWidth * .5, y + quadHeight * .5);
   })
 }
 
