@@ -1,9 +1,9 @@
 {
-	description = "A Nix-flake-based C/C++ development environment";
+	description = "OpenGGL C++ Library";
 
-	inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.*.tar.gz";
+	inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-	outputs = { nixpkgs, ... }:
+	outputs = { self, nixpkgs }:
 	let
 		system = "x86_64-linux";
 		pkgs = nixpkgs.legacyPackages.${system};
@@ -16,20 +16,38 @@
 			xorg.libXi
 			xorg.libXrandr
 		];
-	in
-	{
-		devShells.x86_64-linux.default = pkgs.mkShell {
-			nativeBuildInputs = with pkgs; [
+		openGGL = pkgs.stdenv.mkDerivation {
+			pname = "OpenGGL";
+			version = "0.1.0";
+
+			src = ./.;
+
+			# TODO: make some packages only available in build phase
+			buildInputs = with pkgs; [ 
 				assimp
 				clang
 				freeglut
 				gcc
-				gcc
 				glfw
+				gnumake
 				libGLU
 			];
 
+			buildPhase = ''
+				make libOpenGGL.a
+			'';
+
+			installPhase = ''
+				mkdir --parents $out/include $out/lib
+				cp --recursive include $out
+				cp libOpenGGL.a $out/lib/
+			'';
+
 			LD_LIBRARY_PATH = libPath + "/run/opengl-driver/lib:/run/opengl-driver-32/lib";
 		};
+	in {
+		packages.x86_64-linux.openGGL = openGGL;
+		devShells.x86_64-linux.default = openGGL;
+		defaultPackage.x86_64-linux = openGGL;
 	};
 }
