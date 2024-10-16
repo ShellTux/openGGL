@@ -2,7 +2,10 @@ CXX       = clang++
 CXXFLAGS  = -Wall -Wextra -std=c++17
 CXXFLAGS += -I$(shell realpath include)
 
-SRC = src/openGGL/2D/geometric-figures-unit.cpp src/openGGL/2D/geometric-figures.cpp
+SRC = \
+      src/openGGL/2D/geometric-figures.cpp \
+      src/openGGL/2D/geometric-figures-unit.cpp \
+      src/openGGL/3D/geometric-figures-unit.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: libOpenGGL.a
