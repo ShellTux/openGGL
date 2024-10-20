@@ -77,47 +77,6 @@ void update() {
   angleZ += 0.7f;
 }
 
-constexpr int attribStackMask =
-    GL_COLOR_BUFFER_BIT | GL_LINE_BIT | GL_POINT_BIT;
-
-#define QUAD_UNIT(ROW, COL, WIDTH, HEIGHT, CODE)                               \
-  {                                                                            \
-    glPushMatrix();                                                            \
-    {                                                                          \
-      constexpr int quadN = (COL);                                             \
-      constexpr int quadM = (ROW);                                             \
-      constexpr GLfloat x = quadWidth * (quadN + .5);                          \
-      constexpr GLfloat y = quadHeight * (quadM + .5);                         \
-                                                                               \
-      glTranslatef(x, y, 0);                                                   \
-      glScalef(quadWidth, quadHeight, 1);                                      \
-      glRotatef(angle, 0, 0, 1);                                               \
-                                                                               \
-      glPushAttrib(attribStackMask);                                           \
-      glColor3ubv(colors[quadN][quadM]);                                       \
-      CODE;                                                                    \
-      glPopAttrib();                                                           \
-    }                                                                          \
-    glPopMatrix();                                                             \
-  }
-
-#define QUAD(ROW, COL, WIDTH, HEIGHT, CODE)                                    \
-  {                                                                            \
-    glPushMatrix();                                                            \
-    {                                                                          \
-      constexpr int quadN = (COL);                                             \
-      constexpr int quadM = (ROW);                                             \
-      constexpr GLfloat x = quadWidth * quadN;                                 \
-      constexpr GLfloat y = quadHeight * quadM;                                \
-                                                                               \
-      glPushAttrib(attribStackMask);                                           \
-      glColor3ubv(colors[quadN][quadM]);                                       \
-      CODE;                                                                    \
-      glPopAttrib();                                                           \
-    }                                                                          \
-    glPopMatrix();                                                             \
-  }
-
 void draw() {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
