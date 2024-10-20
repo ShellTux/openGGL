@@ -1,24 +1,19 @@
-CXX       = clang++
+CXX = clang++
 CXXFLAGS  = -Wall -Wextra -std=c++17
 CXXFLAGS += -I$(shell realpath include)
+CXXFLAGS += -I$(shell realpath ../../include)
+CXXFLAGS += -L$(shell realpath ../..)
 
-SRC = \
-      src/openGGL/2D/geometric-figures.cpp \
-      src/openGGL/2D/geometric-figures-unit.cpp \
-      src/openGGL/3D/geometric-figures.cpp \
-      src/openGGL/3D/geometric-figures-unit.cpp
-OBJ = $(SRC:.cpp=.o)
+SOURCES = src/main.cpp
 
-all: libOpenGGL.a
+LD_FLAGS = -lGL -lGLU -lglfw -lOpenGGL
 
-libOpenGGL.a: $(OBJ)
-	ar rcs $@ $^
+TARGET = bin/app
 
-.PHONY: clean
-clean:
-	rm -f *.o *.a libOpenGGL.a
+$(TARGET): $(SOURCES)
+	mkdir --parents $(shell dirname $(TARGET))
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LD_FLAGS)
 
-.PHONY: .clangd
 .clangd:
 	rm --force $@
 
@@ -29,3 +24,7 @@ clean:
 	@echo '  Add:' | tee --append $@
 
 	@for flag in $(CXXFLAGS) ; do echo "    - $$flag" | tee --append $@ ; done
+
+.PHONY: run
+run: $(TARGET)
+	./$<
