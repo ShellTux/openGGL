@@ -165,7 +165,7 @@ App::App(const int width, const int height, const std::string &title) {
   }
 
   glfwMakeContextCurrent(window);
-  glfwSetFramebufferSizeCallback(window, framebufferSizeCallbackUnit2D);
+  glfwSetFramebufferSizeCallback(window, FramebufferSizeCallback::Unit2D);
 
   allApps[window] = this;
 }
