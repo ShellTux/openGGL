@@ -43,11 +43,20 @@ public:
     ,
   };
 
+  enum class DisplayMode {
+    Unit2D,
+    Unit3D,
+    Screen2D,
+    Screen3D,
+  };
+
   using WindowAppMap = std::unordered_map<GLFWwindow *, const App *>;
 
   App &setDebugEventFlag(const DebugEventFlag debugEventFlag);
   App &unsetDebugEventFlag(const DebugEventFlag debugEventFlag);
   App &clearDebugEventFlags();
+  App &setFramebufferSizeCallback(void (*callback)(GLFWwindow *, int, int));
+  App &setFramebufferSizeCallback(const DisplayMode mode);
 
   static WindowAppMap getAllApps();
 
