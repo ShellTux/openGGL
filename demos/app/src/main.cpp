@@ -5,6 +5,7 @@
 #include <string>
 
 GLfloat scale = 1.0f;
+GLfloat angle = 0.0f;
 
 #if 0
 #define OPENGGL_APP_EVENTS_IMPLEMENTATION
@@ -102,7 +103,7 @@ void App::mouseScrolled(const double xOffset, const double yOffset) const {
 
 namespace openGGL {
 
-void App::update() {};
+void App::update() { angle += 1.3f; };
 void App::setup() {};
 
 void App::draw() {
@@ -111,6 +112,7 @@ void App::draw() {
   glLoadIdentity();
 
   glScalef(scale, scale, 1);
+  glRotatef(angle, 0, 0, 1);
   openGGL::GeometricFigures2D::Unit::Square();
 };
 
