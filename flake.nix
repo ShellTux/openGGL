@@ -34,13 +34,13 @@
 			];
 
 			buildPhase = ''
-				make libOpenGGL.a
+				make
 			'';
 
 			installPhase = ''
 				mkdir --parents $out/include $out/lib
 				cp --recursive include $out
-				cp libOpenGGL.a $out/lib/
+				cp libOpenGGL.a libOpenGGLApp.a $out/lib/
 			'';
 
 			LD_LIBRARY_PATH = libPath + "/run/opengl-driver/lib:/run/opengl-driver-32/lib";
