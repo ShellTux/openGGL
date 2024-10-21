@@ -4,47 +4,54 @@
 #include <GLFW/glfw3.h>
 #include <openGGL/App/core.hpp>
 
-#if 0
-#define OPENGGL_APP_EVENTS_IMPLEMENTATION
-#endif
-
-#ifdef OPENGGL_APP_EVENTS_IMPLEMENTATION
 #include <iostream>
 #include <map>
 #include <string>
 
 namespace openGGL {
 
+#ifndef OPENGGL_APP_EVENTS_DEFAULT_IMMPLEMENTATION_DISABLED
+#ifndef OPENGGL_APP_EVENTS_DEFAULT_KEYPRESS_IMPLEMENTATION_DISABLED
 void App::keyPressed(const int key) const {
   if (isDebugEventFlagOn(DEBUG_KEY_PRESS)) {
     std::cout << "Key Pressed: " << glfwGetKeyName(key, 0) << std::endl;
   }
 }
+#endif
 
+#ifndef OPENGGL_APP_EVENTS_DEFAULT_KEYRELEASED_IMPLEMENTATION_DISABLED
 void App::keyReleased(const int key) const {
   if (isDebugEventFlagOn(DEBUG_KEY_RELEASE)) {
     std::cout << "Key Released: " << glfwGetKeyName(key, 0) << std::endl;
   }
 }
+#endif
 
+#ifndef OPENGGL_APP_EVENTS_DEFAULT_MOUSEENTERED_IMPLEMENTATION_DISABLED
 void App::mouseEntered() const {
   if (isDebugEventFlagOn(DEBUG_MOUSE_ENTER)) {
     std::cout << "Mouse entered Window" << std::endl;
   }
 }
+#endif
 
+#ifndef OPENGGL_APP_EVENTS_DEFAULT_MOUSEEXITED_IMPLEMENTATION_DISABLED
 void App::mouseExited() const {
   if (isDebugEventFlagOn(DEBUG_MOUSE_EXIT)) {
     std::cout << "Mouse exited Window" << std::endl;
   }
 }
+#endif
 
+#ifndef OPENGGL_APP_EVENTS_DEFAULT_MOUSEMOVED_IMPLEMENTATION_DISABLED
 void App::mouseMoved(const double mouseX, const double mouseY) const {
   if (isDebugEventFlagOn(DEBUG_MOUSE_MOVE)) {
     std::cout << "Mouse: (" << mouseX << ", " << mouseY << ")" << std::endl;
   }
 }
+#endif
 
+#ifndef OPENGGL_APP_EVENTS_DEFAULT_MOUSEPRESSED_IMPLEMENTATION_DISABLED
 void App::mousePressed(const int button, const int mods) const {
   (void)mods;
 
@@ -60,7 +67,9 @@ void App::mousePressed(const int button, const int mods) const {
     std::cout << "Mouse Pressed: " << buttonNameMap.at(button) << std::endl;
   }
 }
+#endif
 
+#ifndef OPENGGL_APP_EVENTS_DEFAULT_MOUSERELEASED_IMPLEMENTATION_DISABLED
 void App::mouseReleased(const int button, const int mods) const {
   (void)mods;
 
@@ -74,15 +83,18 @@ void App::mouseReleased(const int button, const int mods) const {
     std::cout << "Mouse Released: " << buttonNameMap.at(button) << std::endl;
   }
 }
+#endif
 
+#ifndef OPENGGL_APP_EVENTS_DEFAULT_MOUSESCROLLED_IMPLEMENTATION_DISABLED
 void App::mouseScrolled(const double xOffset, const double yOffset) const {
   if (isDebugEventFlagOn(DEBUG_MOUSE_SCROLL)) {
     std::cout << "Mouse scroll: (" << xOffset << ", " << yOffset << ")"
               << std::endl;
   }
 }
+#endif
+#endif // OPENGGL_APP_EVENTS_DEFAULT_IMMPLEMENTATION_DISABLED
 
 } // namespace openGGL
 
-#endif // OPENGGL_APP_EVENTS_IMPLEMENTATION
 #endif // INCLUDE_APP_EVENTS_CPP_

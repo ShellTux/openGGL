@@ -3,7 +3,6 @@
 #include <cstdlib>
 #include <iostream>
 #include <openGGL/App/core.hpp>
-#include <openGGL/App/events.hpp>
 #include <string>
 #include <unordered_map>
 #include <utility>
