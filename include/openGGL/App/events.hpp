@@ -2,14 +2,16 @@
 #define INCLUDE_APP_EVENTS_CPP_
 
 #include <GLFW/glfw3.h>
-#include <openGGL/App/core.hpp>
-
 #include <iostream>
 #include <map>
+#include <openGGL/App/core.hpp>
 #include <string>
 
 namespace openGGL {
 
+/**
+ * Default implementations for application event handlers.
+ */
 #ifndef OPENGGL_APP_EVENTS_DEFAULT_IMMPLEMENTATION_DISABLED
 #ifndef OPENGGL_APP_EVENTS_DEFAULT_KEYPRESS_IMPLEMENTATION_DISABLED
 void App::keyPressed(const int key) const {

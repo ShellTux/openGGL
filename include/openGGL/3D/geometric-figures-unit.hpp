@@ -3,7 +3,11 @@
 
 namespace openGGL::GeometricFigures3D::Unit {
 
+/** Draws a cube. */
 void Cube();
+
+/** Draws a sphere. */
+void Sphere();
 
 } // namespace openGGL::GeometricFigures3D::Unit
 

@@ -5,6 +5,7 @@
 
 namespace openGGL {
 
+/** Mathematical constant Pi. */
 constexpr GLfloat PI = 3.141592654;
 
 } // namespace openGGL
