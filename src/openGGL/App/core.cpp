@@ -207,6 +207,9 @@ void App::mSetup() {
   glfwSetMouseButtonCallback(window, mouseButtonCallback);
   glfwSetScrollCallback(window, scrollCallback);
 
+  glEnable(GL_CULL_FACE);
+  glCullFace(GL_FRONT);
+
   setup();
 }
 
