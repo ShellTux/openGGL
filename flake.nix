@@ -30,6 +30,7 @@
 				gcc
 				glfw
 				gnumake
+				gtest
 				libGLU
 			];
 
