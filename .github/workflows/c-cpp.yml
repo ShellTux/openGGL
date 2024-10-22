@@ -22,5 +22,7 @@ jobs:
         nix_path: nixpkgs=channel:nixos-unstable
     - name: Compilation
       run: nix develop --command make
+    - name: Unit Test
+      run: nix develop --command make test
     - name: Code Coverage
       run: nix develop --command make cov
