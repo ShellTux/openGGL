@@ -11,7 +11,8 @@ OPENGGL_SRC = \
       src/openGGL/2D/geometric-figures.cpp \
       src/openGGL/2D/geometric-figures-unit.cpp \
       src/openGGL/3D/geometric-figures.cpp \
-      src/openGGL/3D/geometric-figures-unit.cpp
+      src/openGGL/3D/geometric-figures-unit.cpp \
+      src/openGGL/3D/Vector/core.cpp
 OPENGGL_OBJ = $(OPENGGL_SRC:.cpp=.o)
 
 OPENGGLAPP_SRC = \
