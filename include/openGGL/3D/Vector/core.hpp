@@ -122,6 +122,38 @@ public:
   bool operator!=(const Vec3 &other) const;
 
   /**
+   * @brief Adds another vector to this vector in place.
+   *
+   * @param other The vector to add.
+   * @return This vector added with other
+   */
+  Vec3 &operator+=(const Vec3 &other);
+
+  /**
+   * @brief Subtracts another vector from this vector in place.
+   *
+   * @param other The vector to subtract.
+   * @return This vector that is the difference of this vector and other.
+   */
+  Vec3 &operator-=(const Vec3 &other);
+
+  /**
+   * @brief Scales the vector in place by a scalar value.
+   *
+   * @param scalar The scalar to multiply with.
+   * @return This Vector that is the product of this vector and scalar.
+   */
+  Vec3 &operator*=(const GLfloat scalar);
+
+  /**
+   * @brief Divides the vector in place by a scalar value.
+   *
+   * @param scalar The scalar to divide by.
+   * @return This Vector that is the quotient of this vector and scalar.
+   */
+  Vec3 &operator/=(const GLfloat scalar);
+
+  /**
    * @brief Returns a normalized version of this vector.
    *
    * @return A new Vec3 that is this vector normalized.

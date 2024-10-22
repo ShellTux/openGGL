@@ -65,6 +65,18 @@ TEST(Vec3Test, Addition) {
   EXPECT_EQ(result.z, 9.0f);
 }
 
+TEST(Vec3Test, AdditionAssign) {
+  Vec3 a(1.0f, 2.0f, 3.0f);
+  EXPECT_EQ(a.x, 1.0f);
+  EXPECT_EQ(a.y, 2.0f);
+  EXPECT_EQ(a.z, 3.0f);
+
+  a += {4.0f, 5.0f, 6.0f};
+  EXPECT_EQ(a.x, 5.0f);
+  EXPECT_EQ(a.y, 7.0f);
+  EXPECT_EQ(a.z, 9.0f);
+}
+
 TEST(Vec3Test, Subtraction) {
   Vec3 a(4.0f, 5.0f, 6.0f);
   Vec3 b(1.0f, 2.0f, 3.0f);
@@ -72,6 +84,17 @@ TEST(Vec3Test, Subtraction) {
   EXPECT_EQ(result.x, 3.0f);
   EXPECT_EQ(result.y, 3.0f);
   EXPECT_EQ(result.z, 3.0f);
+}
+
+TEST(Vec3Test, SubtractionAssign) {
+  Vec3 a(4.0f, 5.0f, 6.0f);
+  EXPECT_EQ(a.x, 4.0f);
+  EXPECT_EQ(a.y, 5.0f);
+  EXPECT_EQ(a.z, 6.0f);
+  a -= {1.0f, 2.0f, 3.0f};
+  EXPECT_EQ(a.x, 3.0f);
+  EXPECT_EQ(a.y, 3.0f);
+  EXPECT_EQ(a.z, 3.0f);
 }
 
 TEST(Vec3Test, ScalarMultiplication) {
@@ -82,6 +105,23 @@ TEST(Vec3Test, ScalarMultiplication) {
   EXPECT_EQ(result.z, 6.0f);
 }
 
+TEST(Vec3Test, ScalarMultiplicationAssign) {
+  Vec3 a(1.0f, 2.0f, 3.0f);
+  EXPECT_EQ(a.x, 1.0f);
+  EXPECT_EQ(a.y, 2.0f);
+  EXPECT_EQ(a.z, 3.0f);
+
+  a *= 2.0f;
+  EXPECT_EQ(a.x, 2.0f);
+  EXPECT_EQ(a.y, 4.0f);
+  EXPECT_EQ(a.z, 6.0f);
+
+  a *= 0.0f;
+  EXPECT_EQ(a.x, 0);
+  EXPECT_EQ(a.y, 0);
+  EXPECT_EQ(a.z, 0);
+}
+
 TEST(Vec3Test, ScalarDivision) {
   Vec3 a(2.0f, 4.0f, 6.0f);
   Vec3 result = a / 2.0f;
@@ -90,9 +130,22 @@ TEST(Vec3Test, ScalarDivision) {
   EXPECT_EQ(result.z, 3.0f);
 }
 
+TEST(Vec3Test, ScalarDivisionAssign) {
+  Vec3 a(2.0f, 4.0f, 6.0f);
+  EXPECT_EQ(a.x, 2.0f);
+  EXPECT_EQ(a.y, 4.0f);
+  EXPECT_EQ(a.z, 6.0f);
+
+  a /= 2.0f;
+  EXPECT_EQ(a.x, 1.0f);
+  EXPECT_EQ(a.y, 2.0f);
+  EXPECT_EQ(a.z, 3.0f);
+}
+
 TEST(Vec3Test, DivisionByZero) {
   Vec3 a(1.0f, 2.0f, 3.0f);
   EXPECT_THROW(a / 0.0f, std::runtime_error);
+  EXPECT_THROW(a /= 0.0f, std::runtime_error);
 }
 
 TEST(Vec3Test, Equality) {

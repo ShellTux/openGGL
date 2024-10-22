@@ -73,6 +73,26 @@ bool Vec3::operator==(const Vec3 &other) const {
 
 bool Vec3::operator!=(const Vec3 &other) const { return !operator==(other); }
 
+Vec3 &Vec3::operator+=(const Vec3 &other) {
+  *this = *this + other;
+  return *this;
+}
+
+Vec3 &Vec3::operator-=(const Vec3 &other) {
+  *this = *this - other;
+  return *this;
+}
+
+Vec3 &Vec3::operator*=(const GLfloat scalar) {
+  *this = *this * scalar;
+  return *this;
+}
+
+Vec3 &Vec3::operator/=(const GLfloat scalar) {
+  *this = *this / scalar;
+  return *this;
+}
+
 GLfloat Vec3::magnitudeSq() const { return dot(*this, *this); }
 GLfloat Vec3::magnitude() const { return std::sqrt(magnitudeSq()); }
 
