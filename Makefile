@@ -5,7 +5,7 @@ CXXFLAGS += -Wno-error=unused-variable
 CXXFLAGS += -Wno-error=unused-but-set-variable
 CXXFLAGS += -I$(shell realpath include)
 
-LD_FLAGS = -lGL -lGLU -lgtest -lgtest_main -pthread
+LDFLAGS = -lGL -lGLU -lgtest -lgtest_main -pthread
 
 OPENGGL_SRC = \
       src/openGGL/2D/geometric-figures.cpp \
@@ -35,11 +35,11 @@ libOpenGGLApp.a: $(OPENGGLAPP_OBJ)
 
 $(TEST): $(TEST_OBJ)
 	mkdir --parents $(shell dirname "$@")
-	$(CXX) -o $@ $^ $(LD_FLAGS)
+	$(CXX) -o $@ $^ $(LDFLAGS)
 
 .PHONY: clean
 clean:
-	rm -f *.o *.a libOpenGGL.a
+	find . -type f -iname "*.o" -exec rm "{}" \;
 
 .PHONY: test
 test: $(TEST)
