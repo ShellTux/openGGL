@@ -1,6 +1,9 @@
 .direnv
 .clangd
+*.gcda
+*.gcno
 bin
+cov
 result
 
 # Created by https://www.toptal.com/developers/gitignore/api/c++

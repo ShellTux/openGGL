@@ -28,6 +28,7 @@
 				clang
 				freeglut
 				gcc
+				gcovr
 				glfw
 				gnumake
 				gtest
