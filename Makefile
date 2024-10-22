@@ -50,6 +50,7 @@ cov: CXX       = g++
 cov: CXXFLAGS += -fprofile-arcs -ftest-coverage
 cov: LDFLAGS  += -lgcov --coverage
 cov: clean test
+	mkdir --parents cov
 	gcovr --timestamp "$(shell date +"%Y-%m-%d %H:%M:%S")"
 
 .PHONY: cov-web
