@@ -11,8 +11,7 @@ OPENGGL_SRC = \
       src/openGGL/2D/geometric-figures.cpp \
       src/openGGL/2D/geometric-figures-unit.cpp \
       src/openGGL/3D/geometric-figures.cpp \
-      src/openGGL/3D/geometric-figures-unit.cpp \
-      src/openGGL/3D/Vector/core.cpp
+      src/openGGL/3D/geometric-figures-unit.cpp
 OPENGGL_OBJ = $(OPENGGL_SRC:.cpp=.o)
 
 OPENGGLAPP_SRC = \
@@ -22,6 +21,7 @@ OPENGGLAPP_OBJ = $(OPENGGLAPP_SRC:.cpp=.o)
 
 TEST = bin/test
 TEST_SRC = \
+	   src/openGGL/3D/Vector/core.cpp \
 	   tests/openGGL/3D/Vector/core.cpp
 TEST_OBJ := $(TEST_SRC:.cpp=.o)
 
@@ -33,7 +33,7 @@ libOpenGGL.a: $(OPENGGL_OBJ)
 libOpenGGLApp.a: $(OPENGGLAPP_OBJ)
 	ar rcs $@ $^
 
-$(TEST): $(OPENGGL_OBJ) $(TEST_OBJ)
+$(TEST): $(TEST_OBJ)
 	mkdir --parents $(shell dirname "$@")
 	$(CXX) -o $@ $^ $(LD_FLAGS)
 
