@@ -85,109 +85,6 @@ public:
     ,
   };
 
-  /**
-   * Enum representing display modes.
-   */
-  enum class DisplayMode {
-    /**
-     * 2D unit display mode.
-     *
-     * This mode represents a 2D coordinate system where:
-     * - The +X axis points to the right.
-     * - The +Y axis points up.
-     * - The (O)rigin (0,0) is at the center of the screen.
-     *
-     *
-     *               {--------Screen Width------}
-     *    (-1, 1) <- +--------------------------+ {
-     *               |            ^+Y           | |
-     *               |            |             | |
-     *               |            |             | | Screen
-     *               |            O--->+X       | | Height
-     *               |                          | |
-     *               |                          | |
-     *               |                          | |
-     *               +--------------------------+ } -> (1, -1)
-     *
-     * This mode is suitable for rendering 2D graphics without depth.
-     */
-    Unit2D,
-
-    /**
-     * 3D unit display mode.
-     *
-     * This mode represents a 3D coordinate system where:
-     * - The +X axis points to the right.
-     * - The +Y axis points up.
-     * - The +Z axis comes out of the screen towards the viewer.
-     * - The (O)rigin (0,0,0) is at the center of the screen.
-     *
-     *               {--------Screen Width------}
-     * (-1, 1, 0) <- +--------------------------+ {
-     *               |            ^+Y           | |
-     *               |            |             | |
-     *               |            |             | | Screen
-     *               |            O--->+X       | | Height
-     *               |           /              | |
-     *               |          /+Z             | |
-     *               |                          | |
-     *               +--------------------------+ } -> (1, -1, 0)
-     *
-     * This mode is suitable for rendering 3D graphics.
-     */
-    Unit3D,
-
-    /**
-     * 2D screen display mode.
-     *
-     * This mode represents a 2D screen coordinate system where:
-     * - The +X axis points to the right.
-     * - The +Y axis points down.
-     * - The (O)rigin (0,0) is at the top left corner of the screen.
-     *
-     *               {--------Screen Width------}
-     *     (0, 0) <- O--------------------------+ {
-     *               |                          | |
-     *               |            +--->+X       | |
-     *               |            |             | | Screen
-     *               |            |             | | Height
-     *               |            |+Y           | |
-     *               |                          | |
-     *               |                          | |
-     *               +--------------------------+ } -> (width, height)
-     *
-     *
-     *
-     * This mode is typically used for GUI layouts and 2D graphics on the
-     * screen.
-     */
-    Screen2D,
-
-    /**
-     * 3D screen display mode.
-     *
-     * This mode represents a 3D screen coordinate system where:
-     * - The +X axis points to the right.
-     * - The +Y axis points down.
-     * - The +Z axis comes out of the screen towards the viewer.
-     * - The (O)rigin (0,0) is at the top left corner of the screen.
-     *
-     *               {--------Screen Width------}
-     *  (0, 0, 0) <- O--------------------------+ {
-     *               |                          | |
-     *               |            +--->+X       | |
-     *               |           /|             | | Screen
-     *               |          / |             | | Height
-     *               |       +Z/  |+Y           | |
-     *               |                          | |
-     *               |                          | |
-     *               +--------------------------+ } -> (width, height, 0)
-     *
-     * This mode is suitable for rendering 3D graphics on the screen.
-     */
-    Screen3D,
-  };
-
   using WindowAppMap = std::unordered_map<GLFWwindow *, const App *>;
 
   /**
@@ -216,13 +113,6 @@ public:
    * @return Reference to this application.
    */
   App &setFramebufferSizeCallback(void (*callback)(GLFWwindow *, int, int));
-
-  /**
-   * Sets a framebuffer size callback with a display mode.
-   * @param mode The display mode to set.
-   * @return Reference to this application.
-   */
-  App &setFramebufferSizeCallback(const DisplayMode mode);
 
   /** Retrieves all application instances.
    * @return A map of GLFW windows to Application pointers.

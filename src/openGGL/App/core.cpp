@@ -26,44 +26,7 @@
 #include <iostream>
 #include <openGGL/App/core.hpp>
 #include <string>
-#include <unordered_map>
 #include <utility>
-
-namespace FramebufferSizeCallback {
-
-static void Unit2D(GLFWwindow *window, int width, int height) {
-  (void)window;
-  glViewport(0, 0, width, height);
-}
-
-static void Unit3D(GLFWwindow *window, int width, int height) {
-  (void)window;
-  glViewport(0, 0, width, height);
-
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  glOrtho(0, width, height, 0, -1, 1);
-}
-
-static void Screen2D(GLFWwindow *window, int width, int height) {
-  (void)window;
-  glViewport(0, 0, width, height);
-
-  // Update projection here for rendering consistency after resize
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-  glOrtho(0, width, height, 0, -1, 1);
-  glMatrixMode(GL_MODELVIEW);
-  glLoadIdentity();
-}
-
-static void Screen3D(GLFWwindow *window, int width, int height) {
-  (void)window;
-  (void)width;
-  (void)height;
-}
-
-} // namespace FramebufferSizeCallback
 
 static void keyCallback(GLFWwindow *window, int key, int scancode, int action,
                         int mods) {
@@ -155,22 +118,8 @@ App &App::setFramebufferSizeCallback(void (*callback)(GLFWwindow *, int, int)) {
   return *this;
 }
 
-App &App::setFramebufferSizeCallback(const DisplayMode mode) {
-  using callback = void (*)(GLFWwindow *, int, int);
-
-  static const std::unordered_map<DisplayMode, callback> displayModeMap = {
-      {DisplayMode::Unit2D, FramebufferSizeCallback::Unit2D},
-      {DisplayMode::Unit3D, FramebufferSizeCallback::Unit3D},
-      {DisplayMode::Screen2D, FramebufferSizeCallback::Screen2D},
-      {DisplayMode::Screen3D, FramebufferSizeCallback::Screen3D},
-  };
-
-  glfwSetFramebufferSizeCallback(window, displayModeMap.at(mode));
-
-  return *this;
-}
-
 App::App(const int width, const int height) : App(width, height, "") {}
+
 App::App(const int width, const int height, const std::string &title) {
   if (glfwInit() == 0) {
     std::cerr << "Failed to initialize GLFW" << std::endl;
@@ -201,7 +150,11 @@ App::App(const int width, const int height, const std::string &title) {
   }
 
   glfwMakeContextCurrent(window);
-  glfwSetFramebufferSizeCallback(window, FramebufferSizeCallback::Unit2D);
+  glfwSetFramebufferSizeCallback(window,
+                                 [](GLFWwindow *window, int width, int height) {
+                                   (void)window;
+                                   glViewport(0, 0, width, height);
+                                 });
 
   allApps[window] = this;
 }
