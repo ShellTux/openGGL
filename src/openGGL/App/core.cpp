@@ -94,16 +94,19 @@ static void scrollCallback(GLFWwindow *window, double xoffset, double yoffset) {
 namespace openGGL {
 
 App::WindowAppMap App::allApps = App::WindowAppMap();
+
 App::WindowAppMap App::getAllApps() { return allApps; }
 
 App &App::setDebugEventFlag(const DebugEventFlag debugEventFlag) {
   debugEventFlags |= debugEventFlag;
   return *this;
 }
+
 App &App::unsetDebugEventFlag(const DebugEventFlag debugEventFlag) {
   debugEventFlags &= ~debugEventFlag;
   return *this;
 }
+
 App &App::clearDebugEventFlags() {
   debugEventFlags = 0;
   return *this;
