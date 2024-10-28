@@ -313,6 +313,9 @@ public:
   /** Initializes the OpenGL context and enter the drawing loop. */
   void init();
 
+  /** Print OpenGL Information like version, vendor, ... */
+  void printOpenGLInfo() const;
+
   /** Holds all App instances. */
   static WindowAppMap allApps;
 

@@ -20,6 +20,7 @@
  *
  ***************************************************************************/
 #include <GL/gl.h>
+#include <GL/glext.h>
 #include <GLFW/glfw3.h>
 #include <cstdlib>
 #include <iostream>
@@ -244,6 +245,17 @@ void App::mDraw() {
     glfwPollEvents();
   }
   std::cout << "End drawing" << std::endl;
+}
+
+void App::printOpenGLInfo() const {
+  std::cout << "\033[32mVendor:\033[0m           " << glGetString(GL_VENDOR)
+            << std::endl;
+  std::cout << "\033[32mRenderer:\033[0m         " << glGetString(GL_RENDERER)
+            << std::endl;
+  std::cout << "\033[32mVersion:\033[0m          " << glGetString(GL_VERSION)
+            << std::endl;
+  std::cout << "\033[32mShading Language:\033[0m "
+            << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
 }
 
 } // namespace openGGL
