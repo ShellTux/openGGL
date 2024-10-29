@@ -19,13 +19,13 @@
  * KIND, either express or implied.
  *
  ***************************************************************************/
-#ifndef INCLUDE_2D_GEOMETRIC_FIGURES_H_
-#define INCLUDE_2D_GEOMETRIC_FIGURES_H_
+#ifndef INCLUDE_2D_PRIMITIVES_H_
+#define INCLUDE_2D_PRIMITIVES_H_
 
 #include <GL/gl.h>
 #include <cstdint>
 
-namespace openGGL::GeometricFigures2D {
+namespace openGGL::Primitives2D {
 
 /**
  * Draws a rectangle at the specified position with a given width and height.
@@ -71,6 +71,6 @@ void Grid(const GLfloat xPos, const GLfloat yPos, const GLfloat width,
  */
 void Point(const GLfloat xPos, const GLfloat yPos);
 
-} // namespace openGGL::GeometricFigures2D
+} // namespace openGGL::Primitives2D
 
-#endif // INCLUDE_2D_GEOMETRIC_FIGURES_H_
+#endif // INCLUDE_2D_PRIMITIVES_H_

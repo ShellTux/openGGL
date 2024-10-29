@@ -19,13 +19,13 @@
  * KIND, either express or implied.
  *
  ***************************************************************************/
-#ifndef INCLUDE_2D_GEOMETRIC_FIGURES_UNIT_HPP_
-#define INCLUDE_2D_GEOMETRIC_FIGURES_UNIT_HPP_
+#ifndef INCLUDE_2D_PRIMITIVES_UNIT_HPP_
+#define INCLUDE_2D_PRIMITIVES_UNIT_HPP_
 
 #include <GL/gl.h>
 #include <cstdint>
 
-namespace openGGL::GeometricFigures2D::Unit {
+namespace openGGL::Primitives2D::Unit {
 
 /**
  * Draws a circle with the specified resolution.
@@ -52,6 +52,6 @@ void Square();
 /** Draws a triangle. */
 void Triangle();
 
-} // namespace openGGL::GeometricFigures2D::Unit
+} // namespace openGGL::Primitives2D::Unit
 
-#endif // INCLUDE_2D_GEOMETRIC_FIGURES_UNIT_HPP_
+#endif // INCLUDE_2D_PRIMITIVES_UNIT_HPP_

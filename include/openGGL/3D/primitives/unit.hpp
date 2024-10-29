@@ -19,10 +19,10 @@
  * KIND, either express or implied.
  *
  ***************************************************************************/
-#ifndef INCLUDE_3D_GEOMETRIC_FIGURES_UNIT_HPP_
-#define INCLUDE_3D_GEOMETRIC_FIGURES_UNIT_HPP_
+#ifndef INCLUDE_3D_PRIMITIVES_UNIT_HPP_
+#define INCLUDE_3D_PRIMITIVES_UNIT_HPP_
 
-namespace openGGL::GeometricFigures3D::Unit {
+namespace openGGL::Primitives3D::Unit {
 
 /** Draws a cube. */
 void Cube();
@@ -30,6 +30,6 @@ void Cube();
 /** Draws a sphere. */
 void Sphere();
 
-} // namespace openGGL::GeometricFigures3D::Unit
+} // namespace openGGL::Primitives3D::Unit
 
-#endif // INCLUDE_3D_GEOMETRIC_FIGURES_UNIT_HPP_
+#endif // INCLUDE_3D_PRIMITIVES_UNIT_HPP_

@@ -19,8 +19,8 @@
  * KIND, either express or implied.
  *
  ***************************************************************************/
-#include "openGGL/3D/geometric-figures-unit.hpp"
-#include "openGGL/2D/geometric-figures-unit.hpp"
+#include "openGGL/3D/primitives/unit.hpp"
+#include "openGGL/2D/primitives/unit.hpp"
 #include "openGGL/constants.hpp"
 
 #include <GL/gl.h>
@@ -28,7 +28,7 @@
 #define CUBE_MESH_IMPLEMENTATION 0
 #define FACE_COLOR 0
 
-namespace openGGL::GeometricFigures3D::Unit {
+namespace openGGL::Primitives3D::Unit {
 
 void Cube() {
   constexpr GLfloat p = .5f;
@@ -141,4 +141,4 @@ void Cube() {
   glEnd();
 }
 
-} // namespace openGGL::GeometricFigures3D::Unit
+} // namespace openGGL::Primitives3D::Unit
