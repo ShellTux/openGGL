@@ -8,10 +8,10 @@ CXXFLAGS += -I$(shell realpath include)
 LDFLAGS = -lGL -lGLU -lgtest -lgtest_main -pthread
 
 OPENGGL_SRC = \
-      src/openGGL/2D/geometric-figures.cpp \
-      src/openGGL/2D/geometric-figures-unit.cpp \
-      src/openGGL/3D/geometric-figures.cpp \
-      src/openGGL/3D/geometric-figures-unit.cpp \
+      src/openGGL/2D/primitives.cpp \
+      src/openGGL/2D/primitives/unit.cpp \
+      src/openGGL/3D/primitives.cpp \
+      src/openGGL/3D/primitives/unit.cpp \
       src/openGGL/3D/Vector/core.cpp
 OPENGGL_OBJ = $(OPENGGL_SRC:.cpp=.o)
 
